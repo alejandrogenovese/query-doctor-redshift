@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+.row { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.state { padding:18px; border-radius:8px; border:1px solid var(--border); background:#fff; display:flex; flex-direction:column; gap:8px; align-items:flex-start; min-height: 92px;}
+.title { font:600 14px var(--font-sans); color: var(--ink-900); display:flex; gap:8px; align-items:center; }
+.body { font:400 13px/1.45 var(--font-sans); color: var(--ink-600); }
+.spinner { width:14px; height:14px; border:1.5px solid var(--ink-200); border-top-color: var(--galicia-500); border-radius:50%; animation: sp 700ms linear infinite; }
+@keyframes sp { to { transform: rotate(360deg); } }
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:12px;">App states</div>
+  <div class="row">
+    <div class="state">
+      <div class="title"><i data-lucide="file-question" style="width:16px;height:16px;color:var(--ink-400)"></i>Empty</div>
+      <div class="body">Pegá tu query SQL acá.</div>
+    </div>
+    <div class="state">
+      <div class="title"><span class="spinner"></span>Diagnosticando…</div>
+      <div class="body">Analizando texto · consultando EXPLAIN · generando reporte.</div>
+    </div>
+    <div class="state" style="background: var(--ok-50); border-color: var(--ok-100);">
+      <div class="title" style="color:var(--ok-700)"><i data-lucide="circle-check" style="width:16px;height:16px"></i>Reporte listo</div>
+      <div class="body">5 hallazgos · 2 críticos · query optimizada generada.</div>
+    </div>
+    <div class="state" style="background: var(--warn-50); border-color: var(--warn-100);">
+      <div class="title" style="color:var(--warn-700)"><i data-lucide="alert-triangle" style="width:16px;height:16px"></i>EXPLAIN no disponible</div>
+      <div class="body">El MCP no respondió. Reporte basado en análisis estático.</div>
+    </div>
+  </div>
+  <script>lucide.createIcons();</script>
+</div></body></html>

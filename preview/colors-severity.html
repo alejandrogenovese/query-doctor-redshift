@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.row3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+.sev { padding:14px; border-radius:8px; border:1px solid var(--border); }
+.dot { width:10px; height:10px; border-radius:50%; display:inline-block; vertical-align:middle; margin-right:8px; }
+.lbl { font:600 13px var(--font-sans); color:var(--ink-900); display:flex; align-items:center; }
+.tok { font:400 11px var(--font-mono); color:var(--ink-500); margin-top:6px; }
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:12px;">Severity — triage</div>
+  <div class="row3">
+    <div class="sev" style="background:var(--critical-50); border-color: var(--critical-100);">
+      <div class="lbl"><span class="dot" style="background:var(--critical-500)"></span>Crítico</div>
+      <div class="tok">--critical-500 · 0.58 .16 25</div>
+    </div>
+    <div class="sev" style="background:var(--warn-50); border-color: var(--warn-100);">
+      <div class="lbl"><span class="dot" style="background:var(--warn-500)"></span>Atención</div>
+      <div class="tok">--warn-500 · 0.72 .13 80</div>
+    </div>
+    <div class="sev" style="background:var(--ok-50); border-color: var(--ok-100);">
+      <div class="lbl"><span class="dot" style="background:var(--ok-500)"></span>OK</div>
+      <div class="tok">--ok-500 · 0.62 .13 150</div>
+    </div>
+  </div>
+</div></body></html>

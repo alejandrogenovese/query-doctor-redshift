@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+.seg { display:inline-flex; padding:3px; border:1px solid var(--ink-200); border-radius:8px; background:#fff; }
+.seg button { background: transparent; border:0; padding:8px 14px; border-radius:5px; font:500 13px/1 var(--font-sans); color: var(--ink-600); cursor:pointer; display:inline-flex; gap:8px; align-items:center; }
+.seg button.active { background: var(--ink-900); color: #fff; }
+.seg button:hover:not(.active){ color: var(--ink-900); }
+.desc { font:400 13px/1.5 var(--font-sans); color:var(--ink-600); max-width: 60ch; margin-top:14px; }
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:14px;">Mode selector — segmented</div>
+  <div class="seg">
+    <button class="active"><i data-lucide="text-search" style="width:14px;height:14px"></i>Analyze</button>
+    <button><i data-lucide="terminal" style="width:14px;height:14px"></i>Explain</button>
+    <button><i data-lucide="play" style="width:14px;height:14px"></i>Safe exec</button>
+    <button><i data-lucide="git-compare" style="width:14px;height:14px"></i>Compare</button>
+  </div>
+  <div class="desc"><b>Analyze.</b> Solo analiza el texto de la query. No toca Redshift.</div>
+  <script>lucide.createIcons();</script>
+</div></body></html>

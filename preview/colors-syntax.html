@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.block { background: var(--ink-900); padding: 16px 18px; border-radius: 8px; font:400 13px/1.7 var(--font-mono); letter-spacing:-0.005em; }
+.k{color:var(--sql-keyword);} .fn{color:var(--sql-function);} .tbl{color:var(--sql-table);} .col2{color:var(--sql-column);} .num{color:var(--sql-number);} .s{color:var(--sql-string);} .c{color:var(--sql-comment); font-style:italic;} .op{color:var(--sql-operator);}
+.legend{display:grid; grid-template-columns:repeat(4, 1fr); gap:6px 12px; margin-top:10px; font:400 11px var(--font-mono); color:var(--ink-600)}
+.legend span{display:flex; align-items:center; gap:6px}
+.legend i{width:10px; height:10px; border-radius:2px; display:inline-block}
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:10px;">SQL syntax palette · AAA on ink-900</div>
+  <div class="block">
+    <span class="k">SELECT</span> <span class="col2">party_id</span><span class="op">,</span> <span class="fn">COUNT</span>(<span class="op">*</span>) <span class="k">AS</span> <span class="col2">n</span>
+    <span class="k">FROM</span> <span class="tbl">crm.movimientos</span>
+    <span class="k">WHERE</span> <span class="col2">fecha</span> <span class="op">&gt;=</span> <span class="s">'2026-01-01'</span> <span class="c">-- last year</span>
+    <span class="k">GROUP BY</span> <span class="num">1</span>;
+  </div>
+  <div class="legend">
+    <span><i style="background:var(--sql-keyword)"></i>keyword</span>
+    <span><i style="background:var(--sql-function)"></i>function</span>
+    <span><i style="background:var(--sql-table)"></i>table</span>
+    <span><i style="background:var(--sql-column)"></i>column</span>
+    <span><i style="background:var(--sql-string)"></i>string</span>
+    <span><i style="background:var(--sql-number)"></i>number</span>
+    <span><i style="background:var(--sql-comment)"></i>comment</span>
+    <span><i style="background:var(--sql-operator)"></i>operator</span>
+  </div>
+</div></body></html>

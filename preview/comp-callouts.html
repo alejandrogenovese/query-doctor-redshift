@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+.callout { display:grid; grid-template-columns: 3px 20px 1fr; gap:0 12px; align-items:flex-start; padding:14px 16px 14px 0; background:#fff; border:1px solid var(--border); border-radius:8px; margin-bottom:10px; overflow:hidden; }
+.callout > .bar { background: var(--c); height:100%; min-height:48px; }
+.callout > .ic { color: var(--c); padding-top:1px; padding-left:13px; }
+.title { font:600 14px/1.3 var(--font-sans); color:var(--ink-900); }
+.body { font:400 13px/1.5 var(--font-sans); color:var(--ink-700); margin-top:4px; }
+.c1{ --c: var(--critical-500); }
+.c2{ --c: var(--warn-500); }
+.c3{ --c: var(--ok-500); }
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:12px;">Severity callouts</div>
+  <div class="callout c1">
+    <div class="bar"></div><div class="ic"><i data-lucide="octagon-alert" style="width:18px;height:18px"></i></div>
+    <div><div class="title">Crítico — scan completo sobre tabla de alto volumen</div><div class="body"><code>finanzas.movimientos</code> (1.2B filas) se escanea sin predicado temporal.</div></div>
+  </div>
+  <div class="callout c2">
+    <div class="bar"></div><div class="ic"><i data-lucide="alert-triangle" style="width:18px;height:18px"></i></div>
+    <div><div class="title">Atención — posible exposición de datos personales</div><div class="body">La query selecciona <code>documento</code> y <code>mail</code>. Considerá agregación o masking.</div></div>
+  </div>
+  <div class="callout c3">
+    <div class="bar"></div><div class="ic"><i data-lucide="circle-check" style="width:18px;height:18px"></i></div>
+    <div><div class="title">OK — joins usan sort key</div><div class="body">Los JOIN sobre <code>party_id</code> aprovechan el sort key de ambas tablas.</div></div>
+  </div>
+  <script>lucide.createIcons();</script>
+</div></body></html>

@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8" /><link rel="stylesheet" href="_base.css" />
+<style>
+html, body { background: var(--ink-900); color: var(--paper-50); }
+.label { color: var(--ink-300); }
+.semantic { display:grid; grid-template-columns: 14px 1fr auto; gap:10px 14px; align-items:center; padding:14px; border:1px solid var(--ink-700); border-radius:8px; background: var(--ink-800); }
+.chip { width:14px; height:14px; border-radius:3px; border:1px solid color-mix(in oklch, currentColor, transparent 60%); }
+.name { font:500 13px var(--font-mono); color: var(--paper-50);}
+.val { font:400 11px var(--font-mono); color:var(--ink-300); }
+</style></head>
+<body data-theme="dark"><div class="card">
+  <div class="label" style="margin-bottom:12px;">Semantic tokens — Console Dark</div>
+  <div class="semantic">
+    <div class="chip" style="background: var(--ink-900); outline:1px solid var(--ink-700)"></div><div class="name">--bg</div><div class="val">ink-900</div>
+    <div class="chip" style="background: var(--ink-800)"></div><div class="name">--bg-elevated</div><div class="val">ink-800</div>
+    <div class="chip" style="background: var(--ink-950)"></div><div class="name">--bg-sunken</div><div class="val">ink-950</div>
+    <div class="chip" style="background: var(--paper-50)"></div><div class="name">--fg</div><div class="val">paper-50</div>
+    <div class="chip" style="background: var(--ink-300)"></div><div class="name">--fg-muted</div><div class="val">ink-300</div>
+    <div class="chip" style="background: var(--galicia-300)"></div><div class="name">--brand</div><div class="val">galicia-300</div>
+    <div class="chip" style="background: var(--signal-300)"></div><div class="name">--link</div><div class="val">signal-300</div>
+    <div class="chip" style="background: var(--ink-700)"></div><div class="name">--border</div><div class="val">ink-700</div>
+  </div>
+</div></body></html>

@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.code{ background: var(--ink-900); color: var(--paper-50); padding:16px 18px; border-radius:8px; font:400 13px/1.6 var(--font-mono); letter-spacing:-0.005em; }
+.k{color:var(--sql-keyword);} .fn{color:var(--sql-function);} .tbl{color:var(--sql-table);} .col2{color:var(--sql-column);} .num{color:var(--sql-number);} .s{color:var(--sql-string);} .c{color:var(--sql-comment); font-style:italic;}
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:10px;">IBM Plex Mono · 13/1.6</div>
+  <div class="code"><span class="c">-- top 10 clientes por monto en 2026</span>
+<span class="k">WITH</span> mov_filtrados <span class="k">AS</span> (
+  <span class="k">SELECT</span> party_id, <span class="fn">SUM</span>(monto) <span class="k">AS</span> total
+  <span class="k">FROM</span> <span class="tbl">finanzas.movimientos</span>
+  <span class="k">WHERE</span> fecha_movimiento &gt;= <span class="k">DATE</span> <span class="s">'2026-01-01'</span>
+  <span class="k">GROUP BY</span> party_id
+)
+<span class="k">SELECT</span> c.nombre, m.total
+<span class="k">FROM</span> <span class="tbl">crm.clientes</span> c
+<span class="k">JOIN</span> mov_filtrados m <span class="k">ON</span> c.party_id = m.party_id
+<span class="k">ORDER BY</span> m.total <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="num">10</span>;</div>
+</div></body></html>

@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+.btn { display:inline-flex; align-items:center; gap:8px; font:500 14px/1 var(--font-sans); padding:10px 16px; border-radius:6px; border:1px solid transparent; cursor:pointer; transition: background var(--duration-micro) var(--ease-swift); }
+.btn[data-icon-only]{ padding:9px; }
+.primary { background: var(--galicia-500); color:#fff; }
+.primary:hover { background: color-mix(in oklch, var(--galicia-500), black 8%); }
+.secondary { background:#fff; color: var(--ink-900); border-color: var(--ink-200); }
+.secondary:hover { background: var(--ink-100); }
+.ghost { background: transparent; color: var(--ink-700); }
+.ghost:hover { background: var(--ink-100); }
+.danger { background:#fff; color: var(--critical-700); border-color: var(--critical-100); }
+.danger:hover { background: var(--critical-50); }
+.row{display:flex; gap:12px; align-items:center; flex-wrap:wrap;}
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:14px;">Buttons</div>
+  <div class="row" style="margin-bottom:14px;">
+    <button class="btn primary"><i data-lucide="stethoscope" style="width:16px;height:16px"></i>Diagnosticar</button>
+    <button class="btn secondary"><i data-lucide="file-text" style="width:16px;height:16px"></i>Exportar reporte</button>
+    <button class="btn ghost"><i data-lucide="copy" style="width:16px;height:16px"></i>Copiar SQL</button>
+    <button class="btn danger"><i data-lucide="x" style="width:16px;height:16px"></i>Limpiar</button>
+  </div>
+  <div class="row">
+    <button class="btn primary" data-icon-only><i data-lucide="play" style="width:16px;height:16px"></i></button>
+    <button class="btn secondary" data-icon-only><i data-lucide="settings-2" style="width:16px;height:16px"></i></button>
+    <button class="btn secondary" disabled style="opacity:.4; cursor:not-allowed">Sin query</button>
+    <span class="kv" style="margin-left:6px;"><b>hover</b><span>·</span><b>focus</b><span>·</span><b>press</b><span>·</span><b>disabled</b></span>
+  </div>
+  <script>lucide.createIcons();</script>
+</div></body></html>

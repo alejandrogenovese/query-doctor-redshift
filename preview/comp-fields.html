@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+.field { display:flex; flex-direction:column; gap:6px; }
+.field label { font:500 12px var(--font-sans); color: var(--ink-700); }
+.input, .select { display:inline-flex; align-items:center; gap:8px; padding: 9px 12px; background:#fff; border:1px solid var(--ink-200); border-radius: var(--radius-sm); font:400 13px var(--font-mono); color:var(--ink-900); }
+.input:focus-within { border-color: var(--galicia-500); box-shadow: 0 0 0 3px var(--galicia-100); }
+.select { justify-content: space-between; min-width: 180px; }
+.row { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.toggle { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--ink-200); border-radius:999px; background:#fff; font:500 12px var(--font-sans); color:var(--ink-700); }
+.dot { width: 8px; height:8px; border-radius:50%; background: var(--ok-500); }
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:12px;">Form fields — context picker</div>
+  <div class="row">
+    <div class="field"><label>Cluster</label>
+      <div class="select"><span style="display:inline-flex;gap:8px;align-items:center"><i data-lucide="database" style="width:14px;height:14px;color:var(--galicia-500)"></i>prod-redshift</span><i data-lucide="chevron-down" style="width:14px;height:14px;color:var(--ink-400)"></i></div>
+    </div>
+    <div class="field"><label>Database</label>
+      <div class="select"><span>analytics</span><i data-lucide="chevron-down" style="width:14px;height:14px;color:var(--ink-400)"></i></div>
+    </div>
+    <div class="field"><label>Schema</label>
+      <div class="select"><span>crm</span><i data-lucide="chevron-down" style="width:14px;height:14px;color:var(--ink-400)"></i></div>
+    </div>
+  </div>
+  <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
+    <span class="toggle"><span class="dot"></span>MCP conectado</span>
+    <span class="toggle"><i data-lucide="shield-check" style="width:13px;height:13px;color:var(--ok-500)"></i>Guardrails activos</span>
+    <span class="toggle"><i data-lucide="hash" style="width:13px;height:13px"></i>LIMIT 100</span>
+  </div>
+  <script>lucide.createIcons();</script>
+</div></body></html>

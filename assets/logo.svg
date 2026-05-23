@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" fill="none">
+  <g stroke="#FF6A00" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M9 6v6a6 6 0 0 0 12 0V6"></path>
+    <path d="M7.5 6h-1.5M22.5 6h1.5"></path>
+    <path d="M15 18v5a5 5 0 0 0 10 0v-1"></path>
+    <circle cx="27" cy="22" r="2.4"></circle>
+  </g>
+  <text x="44" y="27" font-family="&#39;IBM Plex Sans&#39;, system-ui, sans-serif" font-weight="600" font-size="19" letter-spacing="-0.2" fill="#1a1410">Query Doctor</text>
+</svg>

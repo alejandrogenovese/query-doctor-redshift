@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.row { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+.sample { padding:14px; background:#fff; border-radius:8px; height: 64px; display:flex; align-items:center; justify-content:center; font:500 13px var(--font-mono); color:var(--ink-700); }
+.tk { font:500 12px var(--font-mono); color:var(--ink-900); margin-top:10px; }
+.px { font:400 11px var(--font-mono); color:var(--ink-500); }
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:12px;">Borders — 1px, mostly</div>
+  <div class="row">
+    <div>
+      <div class="sample" style="border:1px solid var(--border)">default</div>
+      <div class="tk">--border</div><div class="px">ink-200 · dividers</div>
+    </div>
+    <div>
+      <div class="sample" style="border:1px solid var(--border-strong)">strong</div>
+      <div class="tk">--border-strong</div><div class="px">ink-300 · sections</div>
+    </div>
+    <div>
+      <div class="sample" style="border:2px solid var(--border-focus); outline:2px solid var(--galicia-100); outline-offset:0">focus</div>
+      <div class="tk">--border-focus</div><div class="px">galicia-500 · 2px AAA ring</div>
+    </div>
+  </div>
+</div></body></html>

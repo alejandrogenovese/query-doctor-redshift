@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.row { display:flex; gap:40px; align-items:center; justify-content:flex-start; padding:18px 8px 24px; }
+.r { display:flex; flex-direction:column; align-items:center; gap:14px; }
+.box { width:140px; height:80px; background:#fff; border:1px solid var(--border); border-radius:8px; }
+.tk { font:500 12px var(--font-mono); color:var(--ink-900); }
+.px { font:400 11px var(--font-mono); color:var(--ink-500); }
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:6px;">Elevation — two levels, no more</div>
+  <div class="row">
+    <div class="r"><div class="box"></div><span class="tk">none</span><span class="px">flat / inline</span></div>
+    <div class="r"><div class="box" style="box-shadow: var(--shadow-soft)"></div><span class="tk">--shadow-soft</span><span class="px">cards · dropdowns</span></div>
+    <div class="r"><div class="box" style="box-shadow: var(--shadow-pop)"></div><span class="tk">--shadow-pop</span><span class="px">popovers · toasts</span></div>
+  </div>
+</div></body></html>

@@ -1,0 +1,371 @@
+/* ============================================================
+   Query Doctor — Design Tokens
+   Base type + color styles and semantic CSS vars.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500&display=swap');
+
+:root {
+  /* ----------------------------------------------------------
+     COLOR — Neutrals (warm-tinted, slight orange cast to harmonize with brand)
+     ---------------------------------------------------------- */
+  --paper-50:  oklch(0.985 0.004 60);
+  --paper-100: oklch(0.97  0.005 60);
+  --ink-100:   oklch(0.94  0.006 60);
+  --ink-200:   oklch(0.88  0.008 60);
+  --ink-300:   oklch(0.78  0.010 55);
+  --ink-400:   oklch(0.65  0.012 50);
+  --ink-500:   oklch(0.52  0.013 45);
+  --ink-600:   oklch(0.42  0.013 40);
+  --ink-700:   oklch(0.32  0.012 35);
+  --ink-800:   oklch(0.22  0.011 30);
+  --ink-900:   oklch(0.15  0.010 30);
+  --ink-950:   oklch(0.09  0.008 30);
+
+  /* ----------------------------------------------------------
+     COLOR — Brand (Banco Galicia — naranja vivo + granate)
+     ---------------------------------------------------------- */
+  /* Primary — Galicia orange (~#FF6A00) */
+  --galicia-50:  oklch(0.97 0.025 50);
+  --galicia-100: oklch(0.93 0.07  50);
+  --galicia-300: oklch(0.83 0.15  50);
+  --galicia-500: oklch(0.71 0.21  50);   /* brand · ~#FF6A00 */
+  --galicia-600: oklch(0.62 0.19  45);   /* hover */
+  --galicia-700: oklch(0.52 0.17  40);   /* press */
+  --galicia-900: oklch(0.32 0.10  35);
+
+  /* Secondary — Galicia granate (wine red, shield color) */
+  --granate-100: oklch(0.93 0.06  20);
+  --granate-300: oklch(0.70 0.16  22);
+  --granate-500: oklch(0.48 0.18  22);   /* ~#9B2424 */
+  --granate-700: oklch(0.36 0.14  22);
+
+  /* Accent — diagnostic signal (cyan, complement to orange) */
+  --signal-100: oklch(0.94 0.04 215);
+  --signal-300: oklch(0.85 0.09 215);
+  --signal-500: oklch(0.78 0.13 215);
+  --signal-700: oklch(0.55 0.12 215);
+
+  /* ----------------------------------------------------------
+     COLOR — Severity (triage palette)
+     ---------------------------------------------------------- */
+  --critical-50:  oklch(0.96 0.02 25);
+  --critical-100: oklch(0.90 0.05 25);
+  --critical-500: oklch(0.58 0.16 25);
+  --critical-700: oklch(0.42 0.13 25);
+
+  /* warn shifted to yellow (hue 95) to differentiate from Galicia orange */
+  --warn-50:  oklch(0.97 0.04 95);
+  --warn-100: oklch(0.92 0.10 95);
+  --warn-500: oklch(0.78 0.14 95);
+  --warn-700: oklch(0.55 0.12 95);
+
+  --ok-50:  oklch(0.96 0.03 150);
+  --ok-100: oklch(0.90 0.07 150);
+  --ok-500: oklch(0.62 0.13 150);
+  --ok-700: oklch(0.45 0.10 150);
+
+  /* ----------------------------------------------------------
+     COLOR — Semantic (Light / Clinic theme)
+     ---------------------------------------------------------- */
+  --bg:          var(--paper-50);
+  --bg-elevated: #ffffff;
+  --bg-muted:    var(--paper-100);
+  --bg-sunken:   var(--ink-100);
+  --bg-code:     var(--ink-900);
+
+  --fg:          var(--ink-900);
+  --fg-muted:    var(--ink-600);
+  --fg-subtle:   var(--ink-400);
+  --fg-on-code:  var(--paper-50);
+  --fg-on-brand: #ffffff;
+
+  --border:        var(--ink-200);
+  --border-strong: var(--ink-300);
+  --border-focus:  var(--galicia-500);
+
+  --brand:       var(--galicia-500);
+  --brand-hover: var(--galicia-600);
+  --brand-press: var(--galicia-700);
+
+  --link: var(--galicia-700);
+  --link-hover: var(--galicia-600);
+
+  --accent: var(--signal-500);
+
+  /* ----------------------------------------------------------
+     SQL SYNTAX TOKENS (used in code blocks)
+     ---------------------------------------------------------- */
+  --sql-keyword:  oklch(0.82 0.11 215);  /* SELECT, FROM, WITH */
+  --sql-function: oklch(0.82 0.10 175);  /* COUNT, SUM */
+  --sql-string:   oklch(0.80 0.10 80);
+  --sql-number:   oklch(0.80 0.12 35);
+  --sql-comment:  oklch(0.55 0.02 200);
+  --sql-operator: oklch(0.78 0.03 200);
+  --sql-table:    oklch(0.92 0.04 200);
+  --sql-column:   oklch(0.85 0.05 215);
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY
+     ---------------------------------------------------------- */
+  --font-sans:  'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:  'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-serif: 'IBM Plex Serif', 'Iowan Old Style', Georgia, serif;
+
+  /* Modular scale @ 1.2 (minor third), base 15px */
+  --text-xs:   12px;
+  --text-sm:   13px;
+  --text-base: 15px;
+  --text-md:   17px;
+  --text-lg:   20px;
+  --text-xl:   24px;
+  --text-2xl:  29px;
+  --text-3xl:  35px;
+  --text-4xl:  42px;
+  --text-5xl:  51px;
+
+  --leading-tight:  1.2;
+  --leading-snug:   1.35;
+  --leading-normal: 1.55;
+  --leading-loose:  1.7;
+
+  --tracking-tight:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-mono:    -0.005em;
+  --tracking-caps:    0.06em;
+
+  /* ----------------------------------------------------------
+     SPACING (8pt grid)
+     ---------------------------------------------------------- */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+
+  /* ----------------------------------------------------------
+     RADIUS / SHADOW
+     ---------------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.04), 0 1px 1px oklch(0 0 0 / 0.06);
+  --shadow-pop:  0 8px 24px -8px oklch(0 0 0 / 0.18);
+
+  /* ----------------------------------------------------------
+     MOTION
+     ---------------------------------------------------------- */
+  --duration-micro: 120ms;
+  --duration-panel: 220ms;
+  --duration-modal: 400ms;
+  --ease-swift:  cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter:  cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ----------------------------------------------------------
+     LAYOUT
+     ---------------------------------------------------------- */
+  --measure-prose: 78ch;
+  --header-h: 56px;
+  --statusbar-h: 32px;
+}
+
+/* ============================================================
+   DARK MODE — Console theme
+   Use: <html data-theme="dark">
+   ============================================================ */
+[data-theme="dark"] {
+  --bg:          var(--ink-900);
+  --bg-elevated: var(--ink-800);
+  --bg-muted:    var(--ink-800);
+  --bg-sunken:   var(--ink-950);
+  --bg-code:     var(--ink-950);
+
+  --fg:          var(--paper-50);
+  --fg-muted:    var(--ink-300);
+  --fg-subtle:   var(--ink-400);
+
+  --border:        var(--ink-700);
+  --border-strong: var(--ink-600);
+
+  --brand:       var(--galicia-500);
+  --brand-hover: var(--galicia-300);
+
+  --link:       var(--signal-300);
+  --link-hover: var(--signal-100);
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES — apply directly via class
+   ============================================================ */
+.qd-display {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+}
+
+.qd-h1 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+}
+
+.qd-h2 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+}
+
+.qd-h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  color: var(--fg);
+}
+
+.qd-h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+  color: var(--fg);
+}
+
+.qd-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+}
+
+.qd-body-sm {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+}
+
+.qd-prose {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+  color: var(--fg);
+  max-width: var(--measure-prose);
+  text-wrap: pretty;
+}
+
+.qd-caption {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--fg-muted);
+}
+
+.qd-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.qd-code {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.92em;
+  letter-spacing: var(--tracking-mono);
+  font-feature-settings: 'ss02', 'cv01';
+}
+
+.qd-code-block {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  letter-spacing: var(--tracking-mono);
+  color: var(--fg-on-code);
+  background: var(--bg-code);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow: auto;
+}
+
+.qd-quote {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  font-style: italic;
+  color: var(--fg);
+}
+
+/* ============================================================
+   BASELINE (resets / element defaults)
+   ============================================================ */
+html {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--fg);
+  background: var(--bg);
+}
+
+h1 { font: 600 var(--text-3xl)/var(--leading-tight) var(--font-sans); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-4); }
+h2 { font: 600 var(--text-2xl)/var(--leading-snug) var(--font-sans); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-3); }
+h3 { font: 600 var(--text-xl)/var(--leading-snug)  var(--font-sans); margin: 0 0 var(--space-3); }
+h4 { font: 600 var(--text-md)/var(--leading-snug)  var(--font-sans); margin: 0 0 var(--space-2); }
+
+p { margin: 0 0 var(--space-3); }
+a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { color: var(--link-hover); }
+
+code, kbd {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-sunken);
+  color: var(--fg);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-5) 0; }
+
+::selection { background: var(--galicia-100); color: var(--ink-900); }
+
+/* Focus ring — uniform AAA */
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

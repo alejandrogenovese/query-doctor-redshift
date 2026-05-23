@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+.blocked { display:grid; grid-template-columns: 22px 1fr; gap:14px; padding:14px 16px; background: var(--critical-50); border: 1px solid var(--critical-100); border-radius: 8px; }
+.blocked .ic { color: var(--critical-700); padding-top:1px; }
+.title { font:600 14px var(--font-sans); color: var(--critical-700); }
+.body { font:400 13px/1.5 var(--font-sans); color: var(--ink-800); margin-top: 4px; }
+.kw { display:inline-flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+.kw code { font:500 11px var(--font-mono); padding:2px 6px; background: #fff; border:1px solid var(--critical-100); color: var(--critical-700); border-radius: 3px; }
+</style></head>
+<body><div class="card">
+  <div class="label" style="margin-bottom:12px;">Guardrail — blocked statement</div>
+  <div class="blocked">
+    <div class="ic"><i data-lucide="ban" style="width:18px;height:18px"></i></div>
+    <div>
+      <div class="title">Sentencia bloqueada por guardrails</div>
+      <div class="body">Esta sentencia no es de solo lectura. Query Doctor solo procesa <code>SELECT</code>, <code>WITH</code> y <code>EXPLAIN</code>.</div>
+      <div class="kw">
+        <code>DROP</code><code>DELETE</code><code>UPDATE</code><code>INSERT</code><code>ALTER</code><code>TRUNCATE</code><code>CREATE</code><code>GRANT</code><code>COPY</code><code>UNLOAD</code>
+      </div>
+    </div>
+  </div>
+  <script>lucide.createIcons();</script>
+</div></body></html>
