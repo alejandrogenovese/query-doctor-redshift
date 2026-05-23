@@ -1,5 +1,5 @@
 /* Query Doctor — App-level styles. Imports tokens from /colors_and_type.css */
-@import url('../../colors_and_type.css');
+@import url('./colors_and_type.css');
 
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }
