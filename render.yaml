@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: query-doctor-redshift
+    env: static
+    staticPublishPath: ./ui_kits/web-app
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
