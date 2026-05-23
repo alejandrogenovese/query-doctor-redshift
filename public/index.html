@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es" data-screen-label="00 Query Doctor — App">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Query Doctor — Web App</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel (pinned) -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+
+  <!-- Sample data -->
+  <script src="sample.js"></script>
+
+  <!-- App scripts -->
+  <script type="text/babel" data-presets="env,react" src="Icon.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="Header.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="Sidebar.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="Editor.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="ModeBar.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="Callout.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="Report.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="LoginScreen.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="HistoryScreen.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="LibraryScreen.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="SchemaScreen.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="SettingsScreen.jsx"></script>
+  <script type="text/babel" data-presets="env,react" src="App.jsx"></script>
+
+  <!-- Bridge: highlighter shared with Report code blocks -->
+  <script type="text/babel" data-presets="env,react">
+    const __K = /\b(SELECT|FROM|WHERE|JOIN|LEFT|RIGHT|INNER|OUTER|ON|AND|OR|NOT|IS|NULL|AS|GROUP|BY|ORDER|HAVING|LIMIT|WITH|UNION|ALL|EXCEPT|INTERSECT|DISTINCT|CASE|WHEN|THEN|ELSE|END|IN|EXISTS|BETWEEN|LIKE|ILIKE|EXPLAIN|DATE)\b/g;
+    const __F = /\b(COUNT|SUM|AVG|MIN|MAX|COALESCE|CAST|DATEDIFF|DATEADD|GETDATE|LOWER|UPPER|TRIM|SUBSTRING|EXTRACT)\b/g;
+    window.__qd_highlight = (code) => {
+      let out = String(code).replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+      out = out.replace(/--[^\n]*/g, m => `<span class="t-c">${m}</span>`);
+      out = out.replace(/'[^']*'/g, m => `<span class="t-s">${m}</span>`);
+      out = out.replace(/\b\d+(\.\d+)?\b/g, m => `<span class="t-n">${m}</span>`);
+      out = out.replace(__K, m => `<span class="t-k">${m}</span>`);
+      out = out.replace(__F, m => `<span class="t-fn">${m}</span>`);
+      return out;
+    };
+
+    // Allow deep-linking to a screen via ?screen=login|workspace|history|library|schema|settings
+    const params = new URLSearchParams(location.search);
+    const requestedScreen = params.get('screen');
+    const skipLogin = requestedScreen !== 'login';
+    const startScreen = (requestedScreen && requestedScreen !== 'login') ? requestedScreen : 'workspace';
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App startScreen={startScreen} skipLogin={skipLogin} />);
+  </script>
+</body>
+</html>
